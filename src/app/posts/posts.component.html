@@ -6,6 +6,10 @@
 
       <p
       >{{p.content}}</p>
+      <mat-action-row>
+        <button mat-button color="Primary">Edit</button>
+        <button mat-button color="warn">Delete</button>
+      </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
 <p class = "text-allignment" *ngIf="posts.length <= 0">No Posts uploaded yet</p>

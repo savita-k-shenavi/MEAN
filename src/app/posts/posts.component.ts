@@ -1,5 +1,7 @@
-import { Component, OnInit , Input} from '@angular/core';
+import { Component, OnInit , OnDestroy} from '@angular/core';
 import {Post} from '../posts.model';
+import {PostService} from '../posts.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-posts',
@@ -7,16 +9,21 @@ import {Post} from '../posts.model';
   styleUrls: ['./posts.component.scss']
 })
 
-export class PostsComponent implements OnInit {
-  enteredTitle = '';
-  enteredContent = '';
+export class PostsComponent implements OnInit,OnDestroy {
 
- @Input() posts: Post[] = [];
+  posts: Post[] = [];
+  private postSub: Subscription;
 
-  constructor() { }
-
+  constructor(public postService: PostService) { }
   ngOnInit() {
+    this.posts = this.postService.getPosts();
+    this.postSub = this.postService.getUpdatedPosts()
+    .subscribe((posts: Post[]) => {
+      this.posts = posts;
+    })
   }
 
-
+  ngOnDestroy(){
+this.postSub.unsubscribe();
+  }
 }
