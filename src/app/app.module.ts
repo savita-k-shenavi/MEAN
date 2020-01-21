@@ -9,7 +9,6 @@ import { HeadersComponent } from './headers/headers.component';
 import { PostsComponent } from './posts/posts.component';
 import { CreatePostsComponent } from './create-posts/create-posts.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
