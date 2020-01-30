@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule , MatCardModule , MatButtonModule , MatToolbarModule ,MatExpansionModule} from '@angular/material';
 import { HeadersComponent } from './headers/headers.component';
 import { PostsComponent } from './posts/posts.component';
+import {HttpClientModule} from '@angular/common/http'
 import { CreatePostsComponent } from './create-posts/create-posts.component';
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CreatePostsComponent } from './create-posts/create-posts.component';
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
