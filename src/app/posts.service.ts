@@ -28,8 +28,8 @@ export class PostService {
       .post<{ message: string }>("http://localhost:3000/app/post", post)
       .subscribe(response => {
         console.log(response.message);
-        this.posts.push(post);
-        this.updatedPosts.next([...this.posts]);
+       // this.posts.push(post);
+       // this.updatedPosts.next([...this.posts]);
       });
   }
 }
